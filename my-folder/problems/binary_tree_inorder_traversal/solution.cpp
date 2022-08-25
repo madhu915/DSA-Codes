@@ -19,8 +19,8 @@ public:
     void inorder(TreeNode* root){
         if(root==NULL)
             return;
-        inorderTraversal(root->left);
+        inorder(root->left);
         trav.push_back(root->val);
-        inorderTraversal(root->right);
+        inorder(root->right);
     }
 };
