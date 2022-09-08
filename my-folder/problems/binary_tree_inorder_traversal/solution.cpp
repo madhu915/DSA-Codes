@@ -12,8 +12,8 @@
 class Solution {
 public:
     vector<int> trav;
-    vector<int> inorderTraversal(TreeNode* root) {       
-        inorder(root);
+    vector<int> inorderTraversal(TreeNode* root) {
+      inorder(root);
         return trav;
     }
     void inorder(TreeNode* root){
