@@ -11,25 +11,33 @@
  */
 class Solution {
 public:
-    bool sum=false;
-    void helper(TreeNode* root, int targetSum) {
-        if(targetSum-root->val==0 and !(root->left) and !(root->right)){
-            sum=true;
-            return;
-        }
+//     bool sum=false;
+//     void helper(TreeNode* root, int targetSum) {
+//         if(targetSum-root->val==0 and !(root->left) and !(root->right)){
+//             sum=true;
+//             return;
+//         }
             
-        // if(targetSum!=0 and !(root->left) and !(root->right))
-        //     return;
-        if(root->left)
-            hasPathSum(root->left,targetSum-root->val);
-        if(root->right)
-            hasPathSum(root->right,targetSum-root->val);
-        return;
-    }
-    bool hasPathSum(TreeNode* root, int targetSum) {
-        if(root==NULL)
-            return false;      
-        helper(root,targetSum);
-        return sum;
-    }
+//         // if(targetSum!=0 and !(root->left) and !(root->right))
+//         //     return;
+//         if(root->left)
+//             hasPathSum(root->left,targetSum-root->val);
+//         if(root->right)
+//             hasPathSum(root->right,targetSum-root->val);
+//         return;
+//     }
+//     bool hasPathSum(TreeNode* root, int targetSum) {
+//         if(root==NULL)
+//             return false;      
+//         helper(root,targetSum);
+//         return sum;
+//     }
+        bool hasPathSum(TreeNode* root, int targetSum) {
+            if(root==NULL)
+                return false;      
+            if(!root->left and !root->right and targetSum-root->val==0)
+                return true;            
+            return (hasPathSum(root->left,targetSum-root->val)) || (hasPathSum(root->right,targetSum-root->val));
+        }
+    
 };
